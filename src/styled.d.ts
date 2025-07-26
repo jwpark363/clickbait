@@ -5,6 +5,8 @@ interface IStyle{
     style2: string,
     style3: string,
     style4: string,
+    style5: string,
+    style6: string,
 }
 declare module 'styled-components' {
   export interface DefaultTheme {

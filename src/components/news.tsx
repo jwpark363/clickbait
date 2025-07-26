@@ -10,22 +10,49 @@ const NewsBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: lightgray;
+  color: ${props => props.theme.color.style2};
+`;
+const NewsHead = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  div{
+    display: flex;
+    align-items: center;
+    &.right{
+      justify-content: flex-end;
+    }
+  }
+  .press{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .point{
+      margin-right: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: ${props => props.theme.backgroundColor.style2};
+      color: ${props => props.theme.color.style3};
+  }
 `;
 const NewsTitle = styled.div`
     display: flex;
-    align-items: center;
-    .point{
-        margin-right: 12px;
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-        border: 2px solid tomato;
-        font-size: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+`;
+const NewsImage = styled.div`
+  width: 80%;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 const NewsContents = styled.div`
   line-height: 1.5;
@@ -34,29 +61,55 @@ const NewsDate = styled.div`
   margin: 8px 4px;
   color: gray;
 `;
+const NewsSource = styled.div`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  span{
+    padding: 4px 12px;
+    border-radius: 8px;
+    background-color: ${props => props.theme.backgroundColor.style5};
+    color: ${props => props.theme.color.style3}
+  }
+`;
 const NewsLike = styled.div`
   margin: 4Px 8px;
   padding: 16px 0px;
-  color: gray;
   display: flex;
-  justify-content: space-between;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  justify-content: flex-end;
+  gap: 18px;
+  border-bottom: 1px solid ${props => props.theme.borderColor.style2};
 `;
 export default function News(data:IData){
     return(
         <NewsBox>
+          <NewsHead>
+            <div className="left">
+              <div className="point"><span>12.5%</span></div>
+              <div className="press">
+                <span>{data.BYLINE}</span>
+                <span>{data.PROVIDER}</span>
+              </div>
+            </div>
+            <div className="right">
+              <span>Subscribe</span>
+            </div>
+          </NewsHead>
           <NewsTitle>
-            <div className="point"><span>12.5%</span></div>
             <span>{data.TITLE}</span>
           </NewsTitle>
+          <NewsImage style={
+            {backgroundImage:`url(${data.IMAGES}.jpg)`}
+          }/>
           <NewsContents>
             <span>{data.CONTENT}</span>
           </NewsContents>
           <NewsDate>
             <span>{toDateFormat(data.DATE)}</span>
           </NewsDate>
+          <NewsSource className='source'><span>원본보기</span></NewsSource>
           <NewsLike>
+            <span>해당 뉴스 기사에 신뢰하시나요?</span>
             <Evaluate />
           </NewsLike>
         </NewsBox>

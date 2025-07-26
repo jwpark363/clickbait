@@ -3,21 +3,27 @@ import { type DefaultTheme } from 'styled-components';
 
 export const Theme: DefaultTheme = {
     backgroundColor:{
-        style1: "black",
-        style2: "white",
-        style3: "darkgray",
-        style4: "lightgray",
+        style1: "#FFFFFF",
+        style2: "#0C038C",
+        style3: "#FF2222",
+        style4: "#000000",
+        style5: "#666666",
+        style6: "#9E9AD1",
     },
     borderColor: {
-        style1: "black",
-        style2: "white",
-        style3: "gray",
+        style1: "#808080",
+        style2: "#BFBFBF",
+        style3: "#8581C5",
         style4: "blue",
+        style5: "",
+        style6: "",
     },
     color: {
-        style1: "white",
-        style2: "rgb(231, 233, 234)",
-        style3: "blue",
-        style4: "black",
+        style1: "#0F2281",
+        style2: "#000000",
+        style3: "#DFDFDF",
+        style4: "#B7B4DD",
+        style5: "#999999",
+        style6: "",
     }
 };

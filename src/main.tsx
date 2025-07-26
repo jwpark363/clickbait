@@ -8,7 +8,7 @@ import { Theme } from './theme.ts'
 const GlobalStyle = createGlobalStyle`
   ${reset}
   body{
-    background-color: black;
+    background-color: white;
   };
   div{
     box-sizing: border-box;
