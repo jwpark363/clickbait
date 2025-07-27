@@ -16,7 +16,10 @@ const Container = styled.div`
 export default function NewsMain(){
   const [dataset,setDataset] = useState<IData[]>([]);
   useEffect(() => {
-    setDataset(fetchNews());
+    (async () => {
+      const dataset = await fetchNews();
+      setDataset(dataset.slice(0,10));
+    })()
   },[])
     return (
         <Container>

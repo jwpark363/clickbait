@@ -87,8 +87,8 @@ export default function News(data:IData){
             <div className="left">
               <div className="point"><span>12.5%</span></div>
               <div className="press">
-                <span>{data.BYLINE}</span>
-                <span>{data.PROVIDER}</span>
+                <span>{data.author_name}</span>
+                <span>{data.source_name}</span>
               </div>
             </div>
             <div className="right">
@@ -96,16 +96,16 @@ export default function News(data:IData){
             </div>
           </NewsHead>
           <NewsTitle>
-            <span>{data.TITLE}</span>
+            <span>{data.title}</span>
           </NewsTitle>
           <NewsImage style={
-            {backgroundImage:`url(${data.IMAGES}.jpg)`}
+            {backgroundImage:`url(${data.image_url})`}
           }/>
           <NewsContents>
-            <span>{data.CONTENT}</span>
+            <span>{data.content}</span>
           </NewsContents>
           <NewsDate>
-            <span>{toDateFormat(data.DATE)}</span>
+            <span>{toDateFormat(data.published_at)}</span>
           </NewsDate>
           <NewsSource className='source'><span>원본보기</span></NewsSource>
           <NewsLike>
