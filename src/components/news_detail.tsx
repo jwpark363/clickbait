@@ -91,7 +91,7 @@ const NewsLike = styled.div`
   gap: 18px;
   border-bottom: 1px solid ${props => props.theme.borderColor.style2};
 `;
-export default function News(data:IData){
+export default function NewsDetail(data:IData){
     return(
         <NewsBox>
           <NewsHead $point={data.fact_score}>
@@ -116,7 +116,7 @@ export default function News(data:IData){
             <span>{data.content}</span>
           </NewsContents>
           <NewsDate>
-            <span>{data.published_at}</span>
+            <span>{toDateFormat(data.published_at)}</span>
           </NewsDate>
           <NewsSource className='source'>
             <Link to={`/detail/${data.id}`}>
@@ -125,7 +125,7 @@ export default function News(data:IData){
           </NewsSource>
           <NewsLike>
             <span>해당 뉴스 기사에 신뢰하시나요?</span>
-            <Evaluate id={data.id}/>
+            <Evaluate />
           </NewsLike>
         </NewsBox>
     )

@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
   div{
     box-sizing: border-box;
   };
+  a{
+    text-decoration: none;
+  }
 `
 
 createRoot(document.getElementById('root')!).render(

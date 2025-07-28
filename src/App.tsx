@@ -3,6 +3,7 @@ import NewsMain from "./routers/news.main"
 import styled from "styled-components"
 import MainTitle from "./components/main.title";
 import MainBottom from "./components/main.botton";
+import NewsDetail from "./routers/news.detail";
 
 const MainContainer = styled.div`
   margin: 0px auto;
@@ -12,22 +13,6 @@ const MainContainer = styled.div`
   /* height: 100vh; */
   display: flex;
   flex-direction: column;
-`;
-const MainMenu = styled.div`
-  margin-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid ${props => props.theme.borderColor.style1};
-  span{
-    width: 92px;
-    text-align: center;
-    padding: 8px;
-    &.selected{
-      border-bottom: 4px solid ${props => props.theme.borderColor.style4};
-    }
-  }
 `;
 const TitleBox = styled.div`
   padding: 24px;
@@ -44,23 +29,20 @@ const BottomBox = styled.div`
 
 function App() {
   return (
-  <MainContainer>
-    <TitleBox>
-      <MainTitle />
-    </TitleBox>
-    <MainMenu>
-      <span className="selected">추천</span>
-      <span>팔로우 중</span>
-    </MainMenu>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<NewsMain />} />
-      </Routes>
-    </BrowserRouter>
-    <BottomBox>
-      <MainBottom />
-    </BottomBox>
-  </MainContainer>
+    <MainContainer>
+      <TitleBox>
+        <MainTitle />
+      </TitleBox>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<NewsMain />} />
+          <Route path="/detail/:id" element={<NewsDetail />} />
+        </Routes>
+      </BrowserRouter>
+      <BottomBox>
+        <MainBottom />
+      </BottomBox>
+    </MainContainer>
   )
 }
 
