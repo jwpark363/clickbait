@@ -60,6 +60,7 @@ const NewsTitle = styled.div`
 const NewsImage = styled.div`
   width: 80%;
   height: 200px;
+  margin: 4px auto;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
