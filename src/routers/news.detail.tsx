@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { fetchNews, type IData } from "../api";
 import styled from "styled-components";
-import { toDateFormat } from "../util/fomatter";
 import { NewsHead } from "../components/styled.components";
 const NewsBox = styled.div`
   width: 95%;
@@ -36,6 +35,25 @@ const NewsContents = styled.div`
 const NewsDate = styled.div`
   margin: 8px 4px;
   color: gray;
+`;
+const NewsTrust = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size: 14px;
+  padding: 4px 8px;
+  span{
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: ${props => props.theme.color.style6};
+    cursor: pointer;
+    &.negative{
+      background-color: ${props => props.theme.backgroundColor.style3};
+    }
+    &.positive{
+      background-color: ${props => props.theme.backgroundColor.style2};
+    }
+  }
 `;
 export default function NewsDetail(){
     const {id} = useParams();
@@ -72,6 +90,13 @@ export default function NewsDetail(){
           <NewsDate>
             <span>{data?.published_at ?? ''}</span>
           </NewsDate>
+          <NewsTrust className='source'>
+            <span className="negative">낚시성 제목</span>
+            <span className="negative">내용과 불일치</span>
+            <span className="negative">근거 부족</span>
+            <span className="positive">팩트 충실함</span>
+            <span className="positive">신뢰할 수 있음</span>
+          </NewsTrust>
         </NewsBox>
     )
 }

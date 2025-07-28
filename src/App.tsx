@@ -18,6 +18,7 @@ const TitleBox = styled.div`
   padding: 24px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 const BottomBox = styled.div`
   display: flex;

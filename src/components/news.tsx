@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import type { IData } from "../api";
 import Evaluate from "./evaluate";
-import { toDateFormat } from "../util/fomatter";
 import { Link } from "react-router";
 
 const NewsBox = styled.div`
@@ -113,7 +112,7 @@ export default function News(data:IData){
             {backgroundImage:`url(${data.image_url})`}
           }/>
           <NewsContents>
-            <span>{data.content}</span>
+            <span>{data.summary_content}</span>
           </NewsContents>
           <NewsDate>
             <span>{data.published_at}</span>

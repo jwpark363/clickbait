@@ -24,6 +24,6 @@ export const Theme: DefaultTheme = {
         style3: "#DFDFDF",
         style4: "#B7B4DD",
         style5: "#999999",
-        style6: "",
+        style6: "#FFFFFF",
     }
 };
