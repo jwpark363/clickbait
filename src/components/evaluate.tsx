@@ -9,10 +9,10 @@ const SVG = styled.svg<{$trust:boolean|undefined}>`
     fill: ${props => props.theme.color.style4};
     cursor: pointer;
     &.positive{
-        fill: ${props => props.$trust === true ? props.theme.color.style5 : props.theme.color.style4};
+        fill: ${props => props.$trust === true ? props.theme.backgroundColor.style2 : props.theme.color.style5};
     }
     &.negative{
-        fill: ${props => props.$trust === false ? props.theme.color.style5 : props.theme.color.style4};
+        fill: ${props => props.$trust === false ? props.theme.backgroundColor.style3 : props.theme.color.style5};
     }
 `;
 interface INewId{

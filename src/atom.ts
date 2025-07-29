@@ -1,18 +1,17 @@
-import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 
-interface ISubscribed{
+export interface ISubscribed{
     id:string,
     is_subscribed:boolean
 }
-export const SubscribedAtom = atom<ISubscribed[]>([]);
+export const SubscribedAtom = atomWithStorage<ISubscribed[]>("subscribed_news",[]);
 // export enum BaseTrust{
 //     POSITIVE='POSITIVE',
 //     NEGATIVE='NEGATIVE',
 //     UNKNOWN='UNKNOWN'
 // }
-type BaseTrust = 'POSITIVE' | 'NEGATIVE' | 'UNKNOWN'
+export type BaseTrust = 'POSITIVE' | 'NEGATIVE' | 'UNKNOWN'
 export const BaseTrust = {
     POSITIVE: 'POSITIVE',
     NEGATIVE: 'NEGATIVE',
@@ -30,7 +29,7 @@ export const BaseTrustAtom = atomWithStorage<IBaseTrust[]>("base_trust",[]);
 //     FACT='FACT',
 //     TRUSTED='TRUSTED'
 // }
-type DetailTrust = 'FISHING' | 'CONTENT_MISMATCH' | 'NO_EVIDENCE' | 'FACT' | 'TRUSTED'
+export type DetailTrust = 'FISHING' | 'CONTENT_MISMATCH' | 'NO_EVIDENCE' | 'FACT' | 'TRUSTED'
 export const DetailTrust = {
     FISHING:'FISHING',
     CONTENT_MISMATCH:'CONTENT_MISMATCH',
@@ -40,6 +39,6 @@ export const DetailTrust = {
 }
 export interface IDetailedTrust{
     id:string,
-    trust?:DetailTrust
+    trust?:DetailTrust[]
 }
-export const DetailedTrustAtom = atom<IDetailedTrust[]>([]);
+export const DetailedTrustAtom = atomWithStorage<IDetailedTrust[]>("detail_trust",[]);

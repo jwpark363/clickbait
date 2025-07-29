@@ -1,9 +1,7 @@
-import { BrowserRouter, Route, Routes } from "react-router"
-import NewsMain from "./routers/news.main"
+import { Outlet } from "react-router"
 import styled from "styled-components"
 import MainTitle from "./components/main.title";
 import MainBottom from "./components/main.botton";
-import NewsDetail from "./routers/news.detail";
 
 const MainContainer = styled.div`
   margin: 0px auto;
@@ -34,12 +32,7 @@ function App() {
       <TitleBox>
         <MainTitle />
       </TitleBox>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<NewsMain />} />
-          <Route path="/detail/:id" element={<NewsDetail />} />
-        </Routes>
-      </BrowserRouter>
+      <Outlet />
       <BottomBox>
         <MainBottom />
       </BottomBox>

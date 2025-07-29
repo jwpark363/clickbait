@@ -2,6 +2,7 @@ import styled from "styled-components";
 import type { IData } from "../api";
 import Evaluate from "./evaluate";
 import { Link } from "react-router";
+import Subscribed from "./subscribed";
 
 const NewsBox = styled.div`
   width: 95%;
@@ -42,12 +43,6 @@ const NewsHead = styled.div<{$point: number}>`
       justify-content: center;
       align-items: center;
       background-color: ${props => props.$point > 50.0 ? props.theme.backgroundColor.style2 : props.theme.backgroundColor.style3};
-      color: ${props => props.theme.color.style3};
-  }
-  .subscribe{
-      padding: 6px 12px;
-      border-radius: 12px;
-      background-color: ${props => props.theme.backgroundColor.style4};
       color: ${props => props.theme.color.style3};
   }
 `;
@@ -92,41 +87,41 @@ const NewsLike = styled.div`
   border-bottom: 1px solid ${props => props.theme.borderColor.style2};
 `;
 export default function News(data:IData){
-    return(
-        <NewsBox>
-          <NewsHead $point={data.fact_score}>
-            <div className="left">
-              <div className="point"><span>{data.fact_score}</span></div>
-              <div className="press">
-                <span>{data.author_name}</span>
-                <span>{data.source_name}</span>
-              </div>
+  return(
+      <NewsBox>
+        <NewsHead $point={data.fact_score}>
+          <div className="left">
+            <div className="point"><span>{data.fact_score}</span></div>
+            <div className="press">
+              <span>{data.author_name}</span>
+              <span>{data.source_name}</span>
             </div>
-            <div className="right">
-              <span className="subscribe">Subscribe</span>
-            </div>
-          </NewsHead>
-          <NewsTitle>
-            <span>{data.title}</span>
-          </NewsTitle>
-          <NewsImage style={
-            {backgroundImage:`url(${data.image_url})`}
-          }/>
-          <NewsContents>
-            <span>{data.summary_content}</span>
-          </NewsContents>
-          <NewsDate>
-            <span>{data.published_at}</span>
-          </NewsDate>
-          <NewsSource className='source'>
-            <Link to={`/detail/${data.id}`}>
-            <span>원본보기</span>
-            </Link>
-          </NewsSource>
-          <NewsLike>
-            <span>해당 뉴스 기사에 신뢰하시나요?</span>
-            <Evaluate id={data.id}/>
-          </NewsLike>
-        </NewsBox>
-    )
+          </div>
+          <div className="right">
+            <Subscribed id={data.id} />
+          </div>
+        </NewsHead>
+        <NewsTitle>
+          <span>{data.title}</span>
+        </NewsTitle>
+        <NewsImage style={
+          {backgroundImage:`url(${data.image_url})`}
+        }/>
+        <NewsContents>
+          <span>{data.summary_content}</span>
+        </NewsContents>
+        <NewsDate>
+          <span>{data.published_at}</span>
+        </NewsDate>
+        <NewsSource className='source'>
+          <Link to={`/news/${data.id}`}>
+          <span>원본보기</span>
+          </Link>
+        </NewsSource>
+        <NewsLike>
+          <span>해당 뉴스 기사에 신뢰하시나요?</span>
+          <Evaluate id={data.id}/>
+        </NewsLike>
+      </NewsBox>
+  )
 }
