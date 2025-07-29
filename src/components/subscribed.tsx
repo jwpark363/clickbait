@@ -7,7 +7,7 @@ const Subscribe = styled.span`
     padding: 6px 12px;
     border-radius: 12px;
     background-color: ${props => props.theme.backgroundColor.style6};
-    color: ${props => props.theme.color.style3};
+    color: ${props => props.theme.color.style6};
     cursor: pointer;
 `
 

@@ -32,10 +32,4 @@ export const NewsHead = styled.div<{$point: number}>`
       background-color: ${props => props.$point > 50.0 ? props.theme.backgroundColor.style2 : props.theme.backgroundColor.style3};
       color: ${props => props.theme.color.style3};
   }
-  .subscribe{
-      padding: 6px 12px;
-      border-radius: 12px;
-      background-color: ${props => props.theme.backgroundColor.style4};
-      color: ${props => props.theme.color.style3};
-  }
 `;
