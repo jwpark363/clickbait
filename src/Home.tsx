@@ -16,7 +16,7 @@ const MainContainer = styled.div`
     height: 520px;
     margin: 24px auto;
     border-radius: 64px;
-    background-image: url('./src/assets/main_image02.png');
+    background-image: url('https://raw.githubusercontent.com/jwpark363/clickbait/refs/heads/main/src/assets/main_image02.png');
     background-size: cover;
     background-position: center center;
   }
