@@ -33,7 +33,7 @@ const MainContainer = styled.div`
     height: 80px;
     margin: 0px auto;
     border-radius: 20px;
-    background-image: url('/src/assets/cone.png');
+    background-image: url('https://raw.githubusercontent.com/jwpark363/clickbait/refs/heads/main/src/assets/cone.png');
     background-size: cover;
     background-position: center center;
   }
