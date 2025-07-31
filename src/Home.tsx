@@ -10,11 +10,11 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
-  div{
+  gap: 12px;
+  div.main{
     width: 80%;
     height: 520px;
-    margin: 24px auto;
+    margin: 120px auto;
     border-radius: 64px;
     background-image: url('https://raw.githubusercontent.com/jwpark363/clickbait/refs/heads/main/src/assets/main_image02.png');
     background-size: cover;
@@ -28,14 +28,23 @@ const MainContainer = styled.div`
     color: ${props => props.theme.color.style6};
     border-radius: 24px;
   }
+  div.logo{
+    width: 200px;
+    height: 80px;
+    margin: 0px auto;
+    border-radius: 20px;
+    background-image: url('/src/assets/cone.png');
+    background-size: cover;
+    background-position: center center;
+  }
 `;
 
 export default function Home(){
     return(
         <MainContainer>
-            <div></div>
+            <div className="main"></div>
             <Link to={'/news'}>
-                <span>뉴스 보기</span>
+                <div className="logo"></div>
             </Link>
         </MainContainer>
     )

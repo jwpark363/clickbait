@@ -64,6 +64,8 @@ export default function NewsDetail(){
     const [data,setData] = useState<IData|undefined>();
     const [detailTrustAtom, setTrustAtom] = useAtom(DetailedTrustAtom)
     // 01:FISHING, 02:CONTENT_MISMATCH, 03:NO_EVIDENCE, 04:FACT, 05:TRUSTED
+    // const TrustList = Object.values(DetailTrust);
+    // console.log(TrustList);
     const [trust01, setTrust01] = useState<boolean|undefined>(undefined);
     const [trust02, setTrust02] = useState<boolean|undefined>(undefined);
     const [trust03, setTrust03] = useState<boolean|undefined>(undefined);
